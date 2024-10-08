@@ -1,0 +1,266 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box; /*mantiene alto y ancho a pesar de padding y margin*/
+    font-family: "Roboto Condensed", system-ui;
+    list-style: none; /*quita los items de las listas*/
+    text-decoration: none; /*quita subrayado de enlaces*/
+    color: white;
+}
+
+body {
+    background-color: black;
+}
+
+header {
+    position: fixed;/*para que header quede fijo en la parte superior*/
+    right: 0;
+    top: 0;
+    z-index: 10;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 3%;
+    background-color: transparent;
+}
+
+.logo {
+    font-size: 30px;
+    font-weight: 800;
+}
+
+.navlist {
+    display: flex;
+}
+
+.navlist a {
+    margin-left: 60px; /*para separar las palabras de la lista*/
+    font-size: 15px;
+    font-weight: 600;
+    border-bottom: 2px solid transparent; /*es un subrayado transparente*/
+    transition: all 5s ease-out;
+}
+
+.navlist a:hover {
+    border-bottom: 2px solid white; /*aparecerá un subrayado blanco al posicionar el mouse*/
+}
+
+#menu-icon {
+    display: none; /*se coloca none para que solo aparezca cuando la página esté colapsada*/
+    font-size: 35px;
+    z-index: 11;
+    cursor: pointer; /*para que aparezca la manito cuando se coloca el cursor encima*/
+}
+
+
+#menu-toggle {
+    display: none; /*para que no se vea el checkbox. NUNCA debe verse*/
+}
+
+.menu-icon-action {
+    display: none;
+}
+
+.hero {
+    width: 100%;
+    height: 100%;
+    min-height: 100vh; 
+    background: linear-gradient(245.59deg, #8dc5d0 0%, #62a9ca 25%, #131313 75%); /*fondo gradiente*/
+    position: relative; /*relativo al contenedor. Permite usar top, bottom, left y right*/
+    display: grid;/*para que el hero se divida en 2 columnas*/
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 2rem;
+}
+
+section {
+    padding: 0 8%;    
+}
+
+.hero-text h5 {
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 25px;
+}
+
+.hero-text h1 {
+    font-family: "PT Sans", system-ui;
+    font-size: 50px;
+    line-height: 1;
+    margin: 0 0 30px;
+}
+
+.hero-text p {
+    font-size: 80%;
+    margin-bottom: 40px;
+    line-height: 1.9;
+}
+
+.hero-text h4 { 
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.hero-img img{
+    width: 350px;
+    margin: 10% 0 0 10%;
+    height: auto;
+    transition: all 5s linear;
+}
+
+.hero-img img:hover {
+    width: 450px;
+    opacity: 0.6;
+}
+
+.hero-text a {
+    display: inline-block; /*permite que se pueda dar un ancho y alto*/
+    background-color: #4d4d4d;
+    border: 1px solid transparent;
+    padding: 15px 30px;
+    line-height: 1.4;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 30px;
+    text-transform: uppercase;
+    transition: all .5s ease;
+}
+
+.hero-text a:hover {
+    background-color: transparent;
+    border: white;
+    transform: translateX(8px);
+}
+
+.hero-text a.videos {
+    background-color: transparent;
+    border: 1px solid white;
+    margin-left: 20px;
+}
+
+.hero-text a.videos i{
+    margin-right: 5px;
+}
+
+.icons {
+    position: absolute; /*para ubicarlos exactamente*/
+    top: 50vh;
+    padding: 0 3%;
+    transform: translateY(-50%)
+}
+
+.icons i {
+    display: block;
+    margin: 26 0;
+    font-size: 24px;
+    transition: all .5s ease;
+}
+
+.icon i:hover {
+    color: #4d4d4d;
+    transform: translateY(-5px);
+}
+
+.scroll-down {
+    position: absolute;
+    bottom: 6%;
+    right: 3%;
+}
+
+.scroll-down i {
+    display: block;
+    padding: 12px;
+    font-size: 25px;
+    background-color: #21383d;
+    border-radius: 30px;
+    transition: all .5s ease;
+}
+
+.scroll-down i:hover {
+    transform: translateY(-5px);
+}
+
+@media (max-width:992px) {
+    section {
+        padding: 0 3%;
+        transition: .2s;
+    }
+
+    .icons {
+        display: none;
+    }
+
+    .hero-text {
+        padding-top: 0; 
+    }
+
+    .hero-img {
+        text-align: center;
+    }
+
+    .hero-img img {
+        width: 80%;
+        margin: 10% 0 0 10%;
+    }
+
+    .hero-text p {
+        font-size: 70%;
+    }
+
+    .scroll-down {
+        display: none;
+    }
+
+}
+
+@media (max-width:768px) {
+    .menu-icon-action {
+        display: block;
+    }
+
+    #menu-icon {
+        display: block;
+    }
+
+    .hero-text {
+        text-align: center;
+        padding-top: 100px; 
+    }
+
+    .hero-img img {
+        margin: 0;
+    }
+
+    .hero {
+        height: 100%;
+        gap: 1rem;
+        grid-template-columns: 1fr; /*con esto lo que hacemos es destruir las 2 columnas que teníamos de grid y hacer una única*/
+    }
+
+    .navlist {
+        position: absolute;
+        top: 100%;
+        right: -100%;
+        width: 200px;
+        height: 180px;
+        background-color: #468fb0a4;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 30px 20px;
+        transition: all .5s ease-out;
+    }
+
+    .navlist a {
+        display: block;
+        margin: 7px 0;
+    }
+
+    #menu-toggle:checked + label.menu-icon-action + ul {
+        right: 0;
+    } /*para que cuando se toca el icono de menu aparezcan las opciones.
+    se selecciona el hermano a traves del +*/
+
+}
